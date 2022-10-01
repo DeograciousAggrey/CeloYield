@@ -14,6 +14,55 @@ const ethKey = fs
   .readFileSync('.ethKey')
   .toString()
   .trim();
+const ContractKit = require('@celo/contractkit');
+const Web3 = require('web3');
+
+require('dotenv').config({path: '.env'});
+
+
+// Create connection to DataHub Celo Network node
+const web3 = new Web3(process.env.REST_URL);
+
+const client = ContractKit.newKitFromWeb3(web3);
+
+//Initialize account from our private key
+const account = web3.eth.accounts.privateKeyToAccount(process.env.PRIVATE_KEY);
+
+//Add private key to ContractKit in order to sign transactions
+client.addAccount(account.privateKey);
+
+module.exports = {
+  compilers: {
+    solc: {
+      version: "0.6.6",    // Fetch exact version from solc-bin (default: truffle's version)
+    }
+  },
+  networks: {
+    test: {
+      host: "127.0.0.1",
+      port: 7545,
+      network_id: "*"
+    },
+    alfajores: {
+      provider: client.connection.web3.currentProvider, // CeloProvider
+      network_id: 44787  // latest Alfajores network id
+    }
+  }
+};
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+
 
 module.exports = {
   networks: {
@@ -63,13 +112,20 @@ module.exports = {
   },
 
   //etherscan API key
+  
+  
+  
+*/
+
+
  /* api_keys: {
     etherscan: ethKey,
   },
   */
   // plugin for verification
   plugins: ['truffle-plugin-verify'],
-};
+
+//};
 
 //truffle test
 
