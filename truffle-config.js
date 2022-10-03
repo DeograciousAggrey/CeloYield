@@ -123,7 +123,7 @@ module.exports = {
   },
   */
   // plugin for verification
-  plugins: ['truffle-plugin-verify'],
+ // plugins: ['truffle-plugin-verify'],
 
 //};
 
