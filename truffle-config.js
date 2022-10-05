@@ -19,6 +19,7 @@ const Web3 = require('web3');
 
 require('dotenv').config({path: '.env'});
 
+/*
 
 // Create connection to DataHub Celo Network node
 const web3 = new Web3(process.env.REST_URL);
@@ -54,13 +55,12 @@ module.exports = {
 
 
 
+*/
 
 
 
 
 
-
-/*
 
 
 
@@ -84,6 +84,14 @@ module.exports = {
       gas: 4500000,
       gasPrice: 10000000000,
     },
+    testnet: {
+      provider: function() {
+        return new HDWalletProvider(mnemonic, "https://alfajores-forno.celo-testnet.org")
+      },
+      network_id: 44787,
+      gas: 20000000
+    },
+
 
     //RINKEBY Test net
     rinkeby: {
@@ -115,7 +123,7 @@ module.exports = {
   
   
   
-*/
+
 
 
  /* api_keys: {
@@ -125,7 +133,7 @@ module.exports = {
   // plugin for verification
  // plugins: ['truffle-plugin-verify'],
 
-//};
+};
 
 //truffle test
 
