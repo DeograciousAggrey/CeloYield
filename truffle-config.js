@@ -16,8 +16,10 @@ const ethKey = fs
   .trim();
 const ContractKit = require('@celo/contractkit');
 const Web3 = require('web3');
+const { Alfajores } = require('@celo-tools/use-contractkit');
 
 require('dotenv').config({path: '.env'});
+
 
 /*
 
