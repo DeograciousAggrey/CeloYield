@@ -1,7 +1,7 @@
 
 # Token Staking dApp <h1>
 
-Working Demo: https://ibnz-staking.netlify.app/
+
 
 #### Blockchain Token Staking dApp built with React, Solidity, on Ethereum Ganache, Ropsten, Rinkeby testnet networks <h6>
 
